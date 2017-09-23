@@ -1,0 +1,43 @@
+<html>
+  <head>
+      <meta http-equiv='Content-Type' content='text/html; charset=ISO-8859-1'>
+      <title><%= numbero %> Choose Your Action</title>
+      <link rel='stylesheet' href='../public/stylesheets/bootstrap.min.css' />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+      <script src="../public/javascripts/bootstrap.min.js"></script>
+      <link rel='stylesheet' href='../public/stylesheets/actionPhase.css'/>
+  </head>
+  
+  <body>
+      <div class='container'>
+        <div class='col-md-offset-2 col-md-8'>
+        <div class='row'>
+                <div class="panel panel-default">
+                  <div class="panel-heading">Panel Heading</div>
+                  <div class="panel-body" >
+                    <div id='page1' style='display:block'>
+                    Page 1
+                  </div>
+                  <div id='page2' style='display:none'>
+                    Page 2
+                  </div>
+
+                  <div id='page3' style='display:none'>
+                    Page 3
+                  </div>
+
+                  </div>
+                  <div class="panel-footer" >
+                    <button id='pageprevious' style='display:none'>Previous</button>
+                    <button id='pagenext' >Next</button>
+                    <button id='pagesubmit' style='display:none'>Submit</button>
+                  </div>
+                </div>
+        </div>
+        </div>
+      </div>
+
+      <script src="../public/javascripts/PostExperiment.js"></script>
+  </body>
+</html>

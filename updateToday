@@ -1,0 +1,40 @@
+the agent part is killing.
+Fixing the stuff to work with node would spoil the architecture
+Written in C++, being attached to node.
+For the corruption paper, people can be made to play the game.
+  Pool punisher
+  Peer punisher
+  Corrupor can all be computers
+
+  Defectors
+  Cooperators
+  Free riders can be people
+
+
+Simulation parameters like mutation prob, fixation prob, e.t.c would not be handled
+
+On the basis of identification, I fear since the data would be discarded then the addition is just an overkill.Users dont need to be reloaded and attached to the same space in the game. If he logs out, then he is out for that round. However, user are given some random number which is saved in the session. Reloading the page gives some warning and also trying to close the page
+
+
+gigighiuerhguierhuihgljsbhiugfierg
+
+information
+tutorial
+entry
+postquizsurvey
+
+
+smartOpponent
+coopOpponent
+predOpponent
+humanAssociate
+smart
+coop
+predictable
+strategy
+strategyOpponent
+usefulRecommendation
+followRecommendation
+age
+gender
+nationality

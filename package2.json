@@ -1,0 +1,27 @@
+{
+  "name": "rouxmeet",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.0.0",
+    "connect-mongo": "~0.4.0",
+    "socket.io": "latest",
+     "connect-redis": "1.4.7",
+     "mongoose": "3.8.6",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+     "forever": "^0.10.11",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4",
+    "ejs": "~0.8.5",
+    "restler": "~3.2.2"
+  },
+"engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}

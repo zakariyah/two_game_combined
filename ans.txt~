@@ -1,0 +1,25 @@
+1. The needed changes
+2. How to set it up
+3. Monitor page
+
++971 4 510 7000
+
++971 4 510 70 40
+
+1. The needed changes
+	ive events
+//  playGame
+		
+, disconnect, waitingTimeElapsed, join, clientMessage, timeOfAction, chatHistory, forceDisconnect
+
+
+1. Create a store for the games
+2. Save the ids in the store as the game starts
+3. Assign the needed tutorial to the respective player
+4. Change the waiting list logic
+5. Run the game
+
+
+Truth --- with human with robot
+
+falsehood -- with human and with robot

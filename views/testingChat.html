@@ -1,0 +1,115 @@
+<html>
+<head>
+<link rel='stylesheet' href='../public/stylesheets/bootstrap.min.css' />
+<link rel="stylesheet" type="text/css" href="../public/stylesheets/testChat.css">
+<script src="../public/javascripts/jquery-1.11.3.js"></script>
+<script src="../public/javascripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="chat" id="chatItems">
+                        <li>
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <div style="background-color: #edd9f7; border-bottom: 5px transparent hidden;"> Round 1.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div style="background-color: #d9edf7; border-bottom: 5px transparent solid;" class="pull-right"> My talk is nice and I expect you to do better things.</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-sm-10" style="background-color: #edf7d9;">
+                                My talk is nice and I expect you to do better things
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group" style="border-bottom: 5px #ffffff solid; ">
+                        <!-- <span>Questions</span> -->
+                        <select>
+                        <option value='0' id='agentQuestionDefault'> ...... </option>
+                        <option value='1' id='agentQuestion1'> Tell me about my opponent </option>
+                        <option value='2' id='agentQuestion2'> What should I do now? </option>
+                        <option value='3' id='agentQuestion3'> Why? </option>
+                        <option value='4' id='agentQuestion4'> Why shouldn't I do otherwise? </option>
+                        <option value='5' id='agentQuestion5'> How do I do better? </option>
+                      </select> 
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Ask</button>
+                        </span>
+                    </div>
+                
+                    <div class="input-group">
+                    <select>
+                        <option value='0' id='feedbackQuestionDefault'> ...... </option>
+                        <option value='1' id='feedbackQuestion1'> I am right </option>
+                        <option value='2' id='feedbackQuestion2'> You were wrong. </option>
+                    </select> 
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="fdbtn">
+                                Send Feedback</button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class='row' id='gameHistory' style="display:block">
+          <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <p>Your total payoff <span id="myTotalPayoff"></span> </p>
+                </div>
+                <div class="panel-body" id="gameHistoryTable">
+                </div>
+          </div>
+      </div>
+</div>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body" id="myModalBody">
+        These are the boys there.
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <script src="../public/javascripts/ChatBox.js"></script>
+      <script type="text/javascript">
+            $(myModal).modal('show');
+            console.log('I have been shown');
+            var snd = new Audio("../public/audio/videoplayback");
+            snd.play();
+      </script>
+
+</body>
+</html>

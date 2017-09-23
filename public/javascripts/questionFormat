@@ -1,0 +1,16 @@
+year :
+subject :
+topic :
+question Number :
+question :
+option :
+option2 :
+option3 :
+option4 :
+answer :
+explanation : 
+
+
+
+images should be named img02_1 where 1 indicate the first image of question 2
+They should be placed in a folder created by year and the subject

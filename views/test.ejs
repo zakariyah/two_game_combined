@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-1.11.3.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script> 
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-offset-lg-2 col-lg-8'>
+              <div class="panel panel-default">
+              <div class="panel-heading">Choose an agent</div>
+              <div class="panel-body">
+                <div class='form'>
+                <div class="form-group">
+                <label for="exampleInputEmail1" class="col-sm-6">Second Agent</label>
+                <div class='col-sm-4'><select name='secondAgent'  class='form-control' id='secondAgent'>
+                  <option value='TFT'>Tit for Tat</option>
+                  <option value='AD'> Always Defect</option>
+                  <option value='AC'>Always Cooperate</option>
+                  <option value='TF2T'>Tit for two tats</option>
+                  <option value='Random'>Random</option>
+                </select>
+              </div>
+                </div>
+              <div class="form-group">
+                  <label  class="col-sm-6" for="exampleInputEmail1">Probability of adherence to Recommendation</label>
+                  <div class='col-sm-4'><input type="text" class="form-control col-offset-sm-2 col-sm-4" id="probability" placeholder="0 to 1"></div>
+              </div>
+              <div class="form-group">
+                  <div class='col-sm-offset-3 col-sm-6'><button class="form-control button" id="playGame">Play Game</button></div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row' id='showGame'></div>
+
+    </div>
+    <script src="/javascripts/testing.js"></script>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+    function showOrUnshowButton()
+    {
+      var checkbox = document.getElementById('committed');
+      var enterexperiment = document.getElementById('enterexperiment');
+      if(checkbox.checked)
+      {
+          // alert('checked');
+                    // enterexperiment.
+          enterexperiment.style.display = ''
+      }
+      else
+      {
+        // alert('not checked');
+        enterexperiment.style.display = 'none'
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div class='container'>
+<div class='col-lg-1'>
+</div>
+<div class='col-lg-10'>
+<p class="text-info">Thank you for your interest in the experiment. We are a research team at Massachusetts Institute of Technology (MIT) and Masdar Institute,
+   and we seek your participation in furthering our understanding of human behavior in games.</p>
+  
+  <p class="text-info">Your participation in this game will take between <%= minTimeMins %> and <%= maxTimeMins %> minutes.
+  If you play the game all the way to the end, you will receive <%= currency %> <%= reward %> as the reward for participating in the experiment.
+  On top of that, you can earn a bonus of up to <%= currency %> <%= maxbonus %>, based on your performance in the game.<br/><br/>
+  These will be paid out at the end of the game, provided you follow all instructions, and do so within the time allotted.</p>
+  
+  <p class="text-info">Please note that if our records indicate that you have
+  already fully played this game <%= playingtimes +" times" %>,
+  you will have to return the task, as you will not be permitted to proceed
+  (games from which you have been ejected due to a partner dropping out do not count towards this.</p>
+
+<div class="warning">You have played as many times as is allowed. Please return the task to avoid penalties.</div>"
+    
+ "<div class=\"warning\">You have dropped out too many times, and may no longer play this game. Please return the task to avoid penalties.</div>";
+  
+
+<p class="text-info">
+
+<p>Thank you for deciding to participate in the experiment.</p>
+
+<p>We are a research team at Massachusetts Institute of Technology (MIT) and Masdar Institute, and we seek your participation in furthering our understanding of human behavior in games.</p>
+
+
+<p>For your participation, you will be compensated with the task's standard reward of <%= currency %> <%= reward %>, as well as a bonus of up to <%= currency %> <%= maxbonus %> that depends on your performance in the experiment.</p>
+
+<p>Note that you will be paired up with other players, who, along with us, will be greatly inconvenienced if you do not follow the game's instructions for each action within the time allotted.</p>
+
+Please read the terms of the following consent form:<br/><br/><div style="border:2px black solid;height:250px;overflow-x:auto;font-family:Courier,System,Verdana;">
+CONSENT TO PARTICIPATE IN NON-BIOMEDICAL RESEARCH
+<br/><br/>
+[Human-Agent Dynamics in Social Games]
+<br/><br/>
+You are asked to participate in a research study conducted by Dr. Iyad Rahwan and Dr. Jacob Crandall, Ph.D., from the Computing and Information Science Program at the Masdar Institute. You were selected as a possible participant in this study because you are a willing volunteer. You should read the information below, and ask questions about anything you do not understand, before deciding whether or not to participate.
+<br/><br/>
+- PARTICIPATION AND WITHDRAWAL
+<br/><br/>
+Your participation in this study is completely voluntary and you are free to choose whether to be in it or not. If you choose to be in this study, you may subsequently withdraw from it at any time without penalty or consequences of any kind.  The investigator may withdraw you from this research if circumstances arise which warrant doing so.  
+<br/><br/>
+- PURPOSE OF THE STUDY
+<br/><br/>
+The purpose of this study is to investigate how different factors (e.g. social, or environmental) affect human reasoning and decision-making in different scenarios. The research will also help us design better systems that support human reasoning and decision-making both individually and in groups.
+<br/><br/>
+
+- PROCEDURES
+<br/><br/>
+Thank you for your interest in the experiment. If you volunteer to participate in this study, we would ask you to do the following things:
+<br/><br/>
+1.  You will enter a Web page on a computer screen.
+<br/>2. You will receives a tutorial briefing, including the description of a single- or multi-player game. A game may consist of multiple stages.
+<br/>3. You will answer a brief quiz that ensures you understand the game rules and experiment procedures.
+<br/>4. You will play one or more rounds of the game. In each round, you accumulate a total score measured in terms of points.
+<br/>5. After a pre-specified number of rounds, the session ends. You will be presented with a summary screen, including total score, and how the score translates to monetary reward.
+<br/><br/>
+Duration: Your participation in this game will take between <%= minTimeMins %> and <%= maxTimeMins %> minutes. 
+<br/><br/>
+- POTENTIAL RISKS AND DISCOMFORTS
+<br/><br/>
+Some participants may feel some discomfort if other players are not behaving as they expected. If participants do not perform well in the game, they may also feel some frustration. Note that all participants are anonymous to each other, so no one will be able to identify you. If you do experience discomforts and risks of any kind, you are free to withdraw from the study.
+<br/><br/>
+- POTENTIAL BENEFITS 
+<br/><br/>
+We hope that you enjoy your participation in the study. We anticipate that this study will also benefit society by helping us all to better understand how to design better systems to support human reasoning and decision making in an increasingly connected world. Feel free to ask the study administrator any questions you have related to the study and its purpose.
+<br/><br/>
+- PAYMENT FOR PARTICIPATION
+<br/><br/>
+Your compensation consists of two elements:
+<br/>1. Show-up fee: A fixed show-up fee of <%= currency %> <%= reward %> will be given to you. This fee will be paid regardless of performance in the game, provided you stay until the end of the session. If you choose to leave before the completion of the game, you will not be paid.
+<br/>2. Bonus (a.k.a. Reward): This is an additional amount, up to <%= currency %> <%= maxbonus %>, awarded based on your performance (i.e. number of points you accumulate).
+<br/>These will be paid out at the end of the game, provided you follow all instructions, and do so within the time allotted.
+<br/><br/>
+- CONFIDENTIALITY
+<br/><br/>
+Any information that is obtained in connection with this study and that can be identified with you will remain confidential and will be disclosed only with your permission or as required by law. 
+<br/><br/>
+All information gathered, both electronically and on paper will be kept secure and confidential.  Additionally, all information gathered will not be tied to your name.  All electronic information will be stored on a password-protected computer.  All paper data will be stored in a secure, locked-up facility.
+<br/><br/>
+- IDENTIFICATION OF INVESTIGATORS
+<br/><br/>
+If you have any questions or concerns about the research, please feel free to contact 
+<br/>-  Iyad Rahwan by email at irahwan@masdar.ac.ae or by phone at extension 9134 (Masdar Institute)
+<br/>-  Jacob Crandall by email at jcrandall@masdar.ac.ae or by phone at extension 9136 (Masdar Institute)
+<br/><br/>
+- RIGHTS OF RESEARCH SUBJECTS
+<br/><br/>
+You are not waiving any legal claims, rights or remedies because of your participation in this research study.  If you feel you have been treated unfairly, or you have questions regarding your rights as a research subject, you may contact:  
+<br/><br/>
+<br/>Dr. Inas Khayal
+<br/>Chairman of the Human Subjects Research Ethics Committee
+<br/>Masdar Institute, PO Box 54224
+<br/>Abu Dhabi
+<br/>Phone: 02-810-9128; or
+<br/><br/>
+<br/>Greg Howell
+<br/>Human Subjects Research Ethics Committee
+<br/>Office of Sponsored Research
+<br/>Masdar Institute 
+<br/>P.O. Box 54224
+<br/>Abu Dhabi
+<br/>Phone: 02-810-9310
+<br/><br/>
+</div>
+<br/>
+<p class="text-info">Please confirm that you are willing to participate in good faith, using the following checkbox.</p>
+<div class="alert alert-info"><input type="checkbox" id="committed" onClick="showOrUnshowButton()"/>&nbsp;I understand that this game requires my undivided attention for up to <%= maxTimeMins %> minutes, and I am willing to commit said time and attention until the game comes to an end.I understand the procedures described above.  My questions have been answered to my satisfaction, and I agree to participate in this study.</div>
+<div class="alert alert-error" id="warning" >If you are not willing to confirm the above statement, please  return the assignment or speak to the experiment supervisor.</div>
+<p>Please click the button below to enter the experiment.</p>
+<p> <a class='btn btn-default' href='/informationMain' id='enterexperiment' style='display:none'>Enter Experiment</a></p>
+</div>
+<div class='col-lg-1'>
+</div>
+</div>
+  </body>
+</html>

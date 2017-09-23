@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Choose Your Action</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="hagile.js"></script>
+  </head>
+  <body>
+    <div class='container'>
+<div class='col-lg-1'>
+</div>
+<div class='col-lg-10'>
+
+
+
+		<div class="alert alert-info">
+		SELECT YOUR ACTION</div>
+			<form method="post" name="masterForm" action="action_phase.jsp" target="_self" onSubmit="javascript:return verifyAction();">
+			<p class="text-info">Each of you can choose one of the following <%= payoffs.length %> actions for the following payoffs:</p>
+			<table class="cleantable" id="payoffMatrix">
+			<tr>
+				<td class="tabledata"></td>
+				<td class="tabledata"></td>
+				<th class="tableheader" colspan="<%= payoffs.length %>">Your Action</th></tr>
+			<tr>
+				<td class="tabledata"></td>
+				<td class="tabledata"></td>
+				<% for(int i = 0; i < payoffs.length; i++) { %>
+				<th class="tableheader">
+					<input class="btn btn-primary" align="middle" style="width:100%;" name="action" id="action<%= (char)(65+i) %>" type="submit" value="<%= (char)(65+i) %>"/>
+				</th>
+				<% } %>
+			</tr>
+			<% for(int i = 0; i < payoffs.length; i++) { %>
+			<tr>
+				<% if(i == 0) { %><th class="tableheader" rowspan="<%= payoffs.length %>">Their<br/>Action</th><% } %>
+				<th class="tableheader"><button disabled="disabled" type="button" class="btn" style="align:center;width:100%;"><%= (char)(65+i) %></button></th>
+				<% for(int j = 0; j < payoffs.length; j++) { %>
+				<td class="tabledata">
+					<span class="youget">You Get <%= payoffs[j][i][pos] %></span><br/><span class="theyget">They Get <%= payoffs[i][j][pos==1?0:1] %></span>
+				</td>
+				<% } %>
+			</tr>
+			<% } %>
+			</table>
+			<script language="javascript">rotateTableById("payoffMatrix",<%= rotateColumns %>,<%= rotateRows %>);</script>
+		<% double totalEarning = dbconn.getTotalEarning(idGame,idPlayer); %>
+		<table class="cleantable">
+		<tr><td class="tabledatavital">Running Average (chips per round)</td><td class="tabledatavital"><%= Utilities.roundCash(totalEarning/(round>1?round-1:round)) %></td></tr>
+		<tr><td class="tabledatavital">Accumulated Earning (<%= conf.getCurrency() %>)</td><td class="tabledatavital"><%= Utilities.roundCash(totalEarning * conf.getBonusPerEarnedToken()) %></td></tr>
+		</table>
+			<br/>
+			<input name="playerId" type="hidden" value="<%= idPlayer %>"/>
+			<input name="assignmentId" type="hidden" value="<%= idAssignment %>"/>
+			<input name="gameId" type="hidden" value="<%= idGame %>"/>
+			<input name="round" type="hidden" value="<%= round %>"/>
+			<input name="countdownTimer" type="hidden" value="<%= countdownTimer %>"/>
+			<span class="label label-important" id="warningMessage" style="display:none;">You must choose an action.</span><br/><br/>
+			<br/>
+			<br/>
+		</form>
+		<div id="timeoutFeedback" style="display:none;">
+			<br/>
+			<form method="post" name="feedbackForm" action="feedback_processing.jsp" target="_self">
+				<p class="text-warning">
+					Please let us know why you timed out:
+					<br/><br/>
+					<input name="q0" type="hidden" value="<%= Constants.TIMEOUT_QUESTION %>"/>
+					<textarea name="a0" rows="3" cols="40" onKeyDown="javascript:return limitContents(this,1000);"></textarea>
+				</p>
+				<input name="playerId" type="hidden" value="<%= idPlayer %>"/>
+				<input name="assignmentId" type="hidden" value="<%= idAssignment %>"/>
+				<input name="gameId" type="hidden" value="<%= idGame %>"/>
+				<br/><br/>
+				<input class="btn btn-primary" name="proceed" type="submit" value="SUBMIT"/>
+			</form>
+		</div>
+		<form method="post" name="autoForm" action="review_phase.jsp" target="_self">
+			<input name="playerId" type="hidden" value="<%= idPlayer %>"/>
+			<input name="assignmentId" type="hidden" value="<%= idAssignment %>"/>
+			<input name="gameId" type="hidden" value="<%= idGame %>"/>
+			<input name="round" type="hidden" value="<%= round %>"/>
+			<input name="auto" type="hidden" value="<%= true %>"/>
+		</form>
+		
+		<script language="JavaScript">
+		var s = setTimeout("document.masterForm.proceed.className = 'deadbutton';",<%= countdownTimer %>);
+		var t = null;
+		var ct = <%= countdownTimer %>;
+		function runTimer() {
+			var ctd = document.getElementById("timerDisplay");
+			if(ct > 0) {
+				ct = ct - 1000;
+				ctd.innerHTML = ct/1000;
+			}
+			if(ct < <%= Constants.CRITICAL_TIME %>) {
+				document.getElementById("timer").className = "timercritical";
+			}
+			if(ct > 0) {
+				t = setTimeout("runTimer();",1000);
+			} else {
+				<% for(int i = 0; i < payoffs.length; i++) { %>
+				document.getElementById("action<%= (char)(65+i) %>").disabled = true;
+				<% } %>
+				//document.getElementById("timeoutFeedback").style.display="block";
+				t = setTimeout("document.autoForm.submit();",<%= conf.getSyncDelayTime()*2 %>);
+				
+			}
+		}
+		if(ct > 0) {
+			t = setTimeout("runTimer();",1000);
+		} else {
+			runTimer();
+		}
+		var clicked = false;
+		function verifyAction() {
+			if(clicked) {
+				return false;
+			}
+			clicked = true;
+			//var inputObject = document.masterForm.action;
+			//var warningMessage = document.getElementById("warningMessage");
+			//if(ct <= 0) {
+			//	warningMessage.style.display="inline";
+			//	warningMessage.innerHTML="Sorry, you are out of time.<% if(Constants.ACTIVATE_API) { %> Please return the task to avoid penalties.<% } %>";
+			//	document.getElementById("timeoutFeedback").style.display="block";
+			//	return false;
+			//}
+			return true;
+		}
+		</script>
+	<%
+	} else {
+		dbconn.updateLastPing(idPlayer,idAssignment);
+		Integer action = null;
+		if(request.getParameter("action") == null || request.getParameter("action").length()==0) {
+			Utilities.redirectError("Invalid action ["+action+"]",request,response,getServletContext());
+			return;
+		} else {
+			action = (int)(request.getParameter("action").charAt(0))-65; //action
+		}
+		dbconn.logAction(idPlayer,idGame,round,(rotateColumns?Math.abs(action-1):action));
+	%>
+		<div class="alert alert-success">ACTION SELECTED</div>
+		<form method="post" name="masterForm" action="review_phase.jsp" target="_self">
+			<p class="text-success">The action you selected has been noted.</p>
+			<table class="cleantable" id="payoffMatrix">
+			<tr>
+				<td class="tabledata"></td>
+				<td class="tabledata"></td>
+				<th class="tableheader" colspan="<%= payoffs.length %>">Your Action</th></tr>
+			<tr>
+				<td class="tabledata"></td>
+				<td class="tabledata"></td>
+				<% for(int i = 0; i < payoffs.length; i++) { %>
+				<th class="tableheader">
+					<button disabled="disabled" type="button" class="btn btn-<%= (action == i ? "warning":"inverse") %>" style="align:center;width:100%;"><%= (char)(65+i) %></button>
+				</th>
+				<% } %>
+			</tr>
+			<% for(int i = 0; i < payoffs.length; i++) { %>
+			<tr>
+				<% if(i == 0) { %><th class="tableheader" rowspan="<%= payoffs.length %>">Their<br/>Action</th><% } %>
+				<th class="tableheader"><button disabled="disabled" type="button" class="btn" style="align:center;width:100%;"><%= (char)(65+i) %></button></th>
+				<% for(int j = 0; j < payoffs.length; j++) { %>
+				<td class="tabledata">
+					<span class="youget">You Get <%= payoffs[j][i][pos] %></span><br/><span class="theyget">They Get <%= payoffs[i][j][pos==1?0:1] %></span>
+				</td>
+				<% } %>
+			</tr>
+			<% } %>
+			</table>
+			<script language="javascript">rotateTableById("payoffMatrix",<%= rotateColumns %>,<%= rotateRows %>);</script>
+		<% double totalEarning = dbconn.getTotalEarning(idGame,idPlayer); %>
+		<table class="cleantable">
+		<tr><td class="tabledatavital">Running Average (chips per round)</td><td class="tabledatavital"><%= Utilities.roundCash(totalEarning/(round>1?round-1:round)) %></td></tr>
+		<tr><td class="tabledatavital">Accumulated Earning (<%= conf.getCurrency() %>)</td><td class="tabledatavital"><%= Utilities.roundCash(totalEarning * conf.getBonusPerEarnedToken()) %></td></tr>
+		</table>
+			<input name="playerId" type="hidden" value="<%= idPlayer %>"/>
+			<input name="assignmentId" type="hidden" value="<%= idAssignment %>"/>
+			<input name="gameId" type="hidden" value="<%= idGame %>"/>
+			<input name="round" type="hidden" value="<%= round %>"/>
+			<input name="auto" type="hidden" value="<%= false %>"/>
+		</form>
+		<div class="alert alert-info">Please wait ... the next phase will begin shortly.</div>
+		<script language="JavaScript">
+		var s = setTimeout("document.masterForm.submit();",<%= countdownTimer + conf.getSyncDelayTime() %>);
+		var t = null;
+		var ct = <%= countdownTimer %>;
+		function runTimer() {
+			var ctd = document.getElementById("timerDisplay");
+			if(ct > 0) {
+				ct = ct - 1000;
+				ctd.innerHTML = ct/1000;
+			}
+			if(ct > 0) {
+				t = setTimeout("runTimer();",1000);
+			}
+		}
+		if(ct > 0) {
+			t = setTimeout("runTimer();",1000);
+		}
+		</script>
+	<%
+	}
+	%>
+<embed src="beep.wav" autostart="true" hidden="true" loop="false"><noembed><bgsound src="beep.wav" loop="1"></noembed></embed>
+</div></body>
+</html>
+<% } catch (Exception ex) {
+	Utilities.redirectError(ex,request,response,getServletContext());
+	return;
+} %>

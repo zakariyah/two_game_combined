@@ -1,0 +1,8 @@
+Telling the user when recommendation is not being followed
+Promting the user if the recommendation is not being followed
+
+
+
+ <table class="table table-bordered"><caption> Game Payoff Matrix </caption><tr><th class="tableheader" rowspan="4" colspan="1" style="text-align:center;"><br><br>Your <br> Action</th><th rowspan="1" colspan="3">Opponent Action</th></tr><tr><td></td><td>A</td><td>B</td></tr><tr><td >A</th><td><span style="color: #009"><i>3</i></span>, <span style="color: #900"><i>3</i></span></td><td><span style="color: #009"><i>0</i></span>, <span style="color: #900"><i>5</i></span></td></tr><tr><td>B</td><td><span style="color: #009"><i>5</i></span>, <span style="color: #900"><i>0</i></span></td><td><span style="color: #009"><i>1</i></span>, <span style="color: #900"><i>1</i></span></td></tr></table>
+
+ <div class="alert alert-info"> Your points are in blue</div>

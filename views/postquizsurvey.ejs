@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Payment page</title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    
+    <div class='container'>
+<div class='col-lg-1'>
+</div>
+<div class='col-lg-10'>
+<div class="row alert alert-warning">
+ <p>Thank you for participating in the study. You will receive a bonus payment of <%= base %> dollars</p>
+ <h6> Breakdown </h6>
+  <p><%= numberOfRandoms %> of <%= numberOfRounds %> rounds were choices made by the system. Of the total <%= cummulativeScore %> points you had, <%= accruedFromRandom %> was random. You were not paid for points accrued through random moves</p>
+
+   <p> The survey code is <strong>uyfuyfrueytgew3568763jdbgfiuwegiu</strong>.</p>
+   <p> Please enter the above code into the Mturk page</p>
+
+   <p> Once again, Thank you very much. </p>
+
+  </div>
+</div>
+</div>
+
+  </body>
+</html>

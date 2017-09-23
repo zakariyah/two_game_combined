@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+        
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+  </head>
+
+  <body>
+
+
+<div id="container" class='container-fluid'>
+  <div class='col-sm-2'>
+  </div>
+  <div class='col-sm-8'>
+
+<div id="PaginationPageId" class='row'>
+  <div id='imageRectId' class='row'>
+  <div id='page1' style='display:none'>
+  
+  <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body"><p> Thank you for your interest in the experiment. We are a research team at  Masdar Institute and Massachusetts Institute of Technology (MIT), and we seek your participation in furthering our understanding of human behavior in games.</p><p> Your participation in this game will take between <%= minTimeMins %> and <%= maxTimeMins %> minutes. If you play the game all the way to the end, you will receive <%= currency %><%= reward %>  as the reward for participating in the experiment. In addition to that, you can earn a bonus of up to <%= currency %><%= maxbonus %>, based on your performance in the game.<br/><br/></p><p> As a participant in this experiment, you will play a simple game consisting of a number of rounds with an algorithm. You are matched with an algorithm  across all rounds within a given game. Your bonus earnings will be credited to your crowdflower account in addition to the show-up fee.
+            </p>
+  <div class="text-center"><span class="label label-default text-center" role="button" >Page 1</span></div>            
+  </div>
+  </div>
+    </div>
+
+    <div id='page2' style='display:none'>
+
+    <div class="panel panel-default">
+    <div class="panel-heading">CONSENT TO PARTICIPATE IN NON-BIOMEDICAL RESEARCH.</div>
+      <div class="panel-body">
+      <textarea  readonly style="width:100%;height:200px">
+      
+            Please read the terms of the following consent form carefully before procedding.
+                        Human Dynamics in Social Games
+You are being asked to participate in a research study conducted by Dr. Iyad Rahwan of the MIT media lab, Dr Talal Rahwan and  Dr. Jacob Crandall, from the Computing and Information Science Program at the Masdar Institute. You were selected as a possible participant in this study because you are a willing volunteer. You should read the information below before deciding whether or not to participate.
+              
+ PARTICIPATION AND WITHDRAWAL
+Your participation in this study is completely voluntary and you are free to choose whether to be in it or not. If you choose to be in this study, you may subsequently withdraw from it at any time without penalty or consequences of any kind. Also, the investigator may withdraw you from this research if circumstances arise which warrant doing so.  
+
+ PURPOSE OF THE STUDY
+ The purpose of this study is to investigate how different factors (e.g. social, or environmental) affect human reasoning and decision-making in different scenarios. The research will also help us design better systems that support human reasoning and decision-making both individually and in groups.
+
+ OVERVIEW
+ If you volunteer to participate in this study,you will receive a tutorial briefing on the game you will play. You will also have to answer a brief quiz that ensures you understand the game rules and experiment procedures before playing an unknown number of rounds. A round consists of two stages – action and review stage. In each round, you accumulate a score measured in terms of points.
+ After a certain number of rounds, the session ends. You will be presented with a summary screen informing you of your total score and how the score translates to monetary reward.
+              
+ POTENTIAL RISKS AND DISCOMFORTS
+Some participants may feel some discomfort if other players are not behaving as they expected. If participants do not perform well in the game, they may also feel some frustration. Note that all participants are anonymous to each other, so no one will be able to identify you. If you do experience discomforts and risks of any kind, you are free to withdraw from the study.
+
+ POTENTIAL BENEFITS 
+We hope that you enjoy your participation in the study. We anticipate that this study will also benefit society by helping us all to better understand how to design better systems to support human reasoning and decision making in an increasingly connected world. You will also receive a monetary reward based on your participation in the game.
+
+ PAYMENT FOR PARTICIPATION
+Your compensation consists of two elements of both show-up fee and bonus.
+   Show-up fee is a  fixed show-up fee of <%= currency %><%= reward %> will be given to you. This fee will be paid regardless of performance in the game, provided you stay until the end of the session. If you choose to leave before the completion of the game, you will not be paid as the completion code for payment is only given at the end of the game.
+   Bonus (a.k.a. Reward): This is an additional amount, up to <%= currency %><%= maxbonus %>,awarded based on your performance (i.e. number of points you accumulate).
+   
+
+ CONFIDENTIALITY
+Any information that is obtained in connection with this study and that can be identified with you will remain confidential and will be disclosed only with your permission or as required by law. Additionally, all information gathered will not be tied to your name. All electronic information will be stored on a password-protected computer.
+             
+ RIGHTS OF RESEARCH SUBJECTS
+You are not waiving any legal claims, rights or remedies because of your participation in this research study.  If you feel you have been treated unfairly, or you have questions regarding your rights as a research subject, you may contact:  
+
+          Dr. Jerald Yoo
+              Chairman of the Human Subjects Research Ethics Committee
+              Masdar Institute, PO Box 54224
+              Abu Dhabi
+              email: jyoo@masdar.ac.ae
+              
+
+Please confirm that you are willing to participate in good faith, using the following checkbox to indicate your acceptance of the above terms of consent. If you are not willing to do so, please close the browser. If you do not click the checkbox, you will not be allowed to take part in the experiment.
+      </textarea>
+
+      <p><input type='checkbox' id='confirmation'> I understand that this game requires my undivided attention for up to <%= maxTimeMins %> minutes, and I am willing to commit said time and attention until the game comes to an end. I understand the procedures described above. I agree to participate in this study.</p>
+  
+          <div class="text-center"><span class="label label-default text-center" role="button" >Page 2</span></div>
+</div>
+    </div>
+
+    </div>
+  
+    <div id='page3'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/1.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page4'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/2.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page5'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/3.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page6'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/4.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page7'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/5.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page8'  style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/6.png' />
+    </div>
+    </div>  
+</div>
+
+
+    <div id='page9' style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">INSTRUCTIONS</div>
+  <div class="panel-body" style="background:black">
+      <img src='/images/tutorial/7.png' style="display:inline-block" />
+    </div>
+    </div>  
+</div>
+
+<div id='page10' style='display:none;min-height:400px;min-width:750px'>
+      <div class="panel panel-default">
+  <div class="panel-heading">SHORT QUIZ</div>
+  <div class="panel-body" style="background:black">
+    <p style='color:white'>We hope the tutorial was useful. You may proceed to the waiting room for the game,
+               once you submit correct answers to all the following questions regarding the payoff structure below:</p>
+      <img src='/images/tutorial/6.png' />
+      <div class='row'>
+        <form class='form' method='post' style='color:white' action='./entry' id='submissionForm'>
+                  <div class="form-group  text-center">
+                 <label>1.  How much do you get if you choose action A but the algorithm  chooses action B</label>
+                 
+                  <label class="radio-inline">
+        <input type="radio" name="1" value="3"> 3
+        </label>
+                <label class="radio-inline">
+            <input type="radio" name="1" value="5"> 5
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="1" value="-2"> -2
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="1" value="0"> 0
+          </label>
+          
+        </div>
+
+          <div class="form-group  text-center">
+          <label>2.  How much do you get if you choose action B but the algorithm chooses action B</label>
+                  <label class="radio-inline">
+        <input type="radio" name="2" value="3"> 3
+        </label>
+                <label class="radio-inline">
+            <input type="radio" name="2" value="5"> 5
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="2" value="-2"> -2
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="2" value="0"> 0
+          </label>
+        </div>
+      <div class="form-group text-center">
+        <button class='btn btn-default' type='submit'>Submit </button>
+      </div>
+    </form>
+      </div>
+
+    </div>
+    </div>  
+</div>
+
+
+  </div>
+  <div id='paginatorId' class='row text-center'></div>
+  <div id='opOptions' class='row'></div>
+</div>  
+</div>
+<div class='col-sm-2'></div>
+
+</div>
+
+<script src="/javascripts/tutorialPagination.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutor Main</title>
+            
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/actionPhase.css' />
+    <script type="text/javascript">
+        var validateAnswers = function()
+            { 
+                    if(!(document.getElementById('confirmation').checked))
+                    {
+                      alert('Please check the confirmation box on page 1');
+                      return false;
+                    }
+                    var correct = true;
+                    var correctAnswers = [0, 1]
+                    for(var i = 0; i < 2; i++)
+                    {
+                      var value = -1;
+                      var radios = document.getElementsByName((i + 1) + "");
+                      for (var j = 0; j < radios.length; j++) {
+                          if (radios[j].checked) {
+                          // get value, set checked flag or do whatever you need to
+                          value = radios[j].value;       
+                          }
+                      }
+                      if(value != correctAnswers[i])
+                      {
+                          alert("Some of the answers are incorrect. Please read the tutorial properly and answer the questions");
+                          return false;
+                      }
+                    }
+                  return true;    
+            }
+    </script>
+
+  </head>
+
+  <body>
+
+<div id="container" class='container-fluid'>
+  <div class='col-sm-2'>
+  </div>
+  <div class='col-sm-8'>  
+  <div class='row'>
+    <div class="panel panel-default">
+      <div class="panel-heading"><b><span id='pageheader'>Introduction</span></b></div>
+      <div class="panel-body" >
+        <div id='page1' style='display:block'>
+          <p>Thank you for deciding to participate in the experiment.
+            We are a research team at Masdar Institute and Massachusetts Institute of Technology (MIT), and we seek your participation in furthering our understanding of human behavior in games.
+          <p>You can make a reasonable amount of money from this game depending on the decisions you make. You are therefore advised to read the following instructions carefully in order to make informed decisions throughout the course of the game. Your participation in this game will take approximately 30 minutes.
+          <p>For your participation, you will be compensated with the task's standard reward of 0.5USD, as well as a significant bonus that depends on your performance in the experiment. These will be paid out at the end of the game, provided you follow all instructions, and <b>play the game till the end</b>.
+          <p>You will complete 2 stages before starting the game itself. In the first stage, you will be provided with a walkthrough of the game via screenshots of the actual game interface along with the instructions for the game. In the second stage, you will be asked 2 comprehension questions to test your understanding of the game.
+
+          <p>After passing the comprehension test, you will be placed in a waiting room. The game will start as soon as your associate joins the game, at which point a beep will alert you. If this does not happen within 300 seconds (there will be a timer counting down), you have the option of leaving with just the task's standard reward or you may continue waiting if you wish.
+          <p>Please confirm that you are willing to participate in good faith, using the following checkbox. If you are not willing to do so, please return the assignment.
+
+           <p style='padding-left:5em'> 
+
+            <input type='checkbox' id='confirmation'> I understand that this game requires my undivided attention for up to 30 minutes, and I am willing to commit said time and attention until the game comes to an end.
+
+
+                            </div>
+                            
+                            <div id='page2' style='display:none'>
+                              <p><b>Please read the instructions carefully, as you will be quizzed about them, and your earnings depend on your performance too.</b>
+              <p>
+          The experiment you are about to partake in, is a simple social game between you and another player referred to as your associate. In each round of the game, you and your associate have a choice between two possible actions. Your performance in the game depends on the choices you make. The game will only be played once, each game consisting of a number of rounds. You are matched with the same associate across all rounds of the game. 
+          </div>
+                            
+                            <div id='page3' style='display:none'>
+                          <p>
+                          In each round of the game, you and your associate will be individually offered a choice between two actions, A or B. You submit your choice by clicking on the option that represents that choice. In any given round, you will not be able to see the choice of your associate until after you both submit your choices and the round ends.
+                          <div>
+                          <img src="/images/tutorial/imgChat.png" style="display: block;"  class='col-md-12'/>
+                            </div>
+                        </div>
+
+                            <div id='page4' style='display:none'>
+                              <p>
+          To help you make a choice in each round of the game, you will have access to a recommendation app. You will be able to ‘chat’ with the app by choosing a question from a set of questions that you will be provided with. You submit your question by clicking on the question. The app will in turn respond to your question by providing a suggestion on what to do or a feedback on the game played so far. Chatting with the app to get advice is entirely optional and you are free to decide how often or not to chat with the app. Sometimes, you will also be prompted by the app to seek advice.
+          
+          <div>
+                        <img src="/images/tutorial/imgChat.png" style="display: block;"  class='col-md-12'/>
+      </div>
+                            </div>
+
+                            <div id='page5' style='display:none'>
+                              <p> At the end of the round, the points obtained by both of you will be highlighted for you to see. Your points in each round will depend on your choice and the choice of your opponent. This gives rise to the four possible scenarios as shown in the screenshot below. In each cell, the first number represents your points and second number represents the points of your associate.
+                              </p>
+          
+                <div>
+                   <img src="/images/tutorial/imgChat.png" style="display: block;"  class='col-md-12'/>
+              </div>
+              </div>
+              <div id='page6' style='display:none'>
+                <p> <b>YOUR EARNINGS </b>
+                      Your accumulated earnings is obtained by summing your points over all rounds of the game thus far. These points are then converted to money by multiplying each point by $0.01. In the unlikely event that your total earnings at the end of all rounds is negative, it will be ignored (no negative bonus earning is possible).
+          
+          <p> <b> YOUR FEEDBACK</b>
+          At the end of the game, you will be asked to fill a survey regarding your decisions in the game.
+                            </div>
+
+                      
+                            <div id='page7' style='display:none'>
+                              <p><b>Note the circumstances in which participants will not be paid:</b>
+          <ol><li>Once in the waiting room, they leave the waiting room before the waiting room timer runs out. </li>
+          <li>Once in a game, they try to return an assignment or stop/close a game at any time before the final payment screen.</li></ol>
+
+                </div>
+
+                      
+                            <div id='page8' style='display:none'>
+                  
+                  <b>We hope the tutorial was useful. You will start the game, once you submit correct answers to all the following questions.</b>
+
+                  <img src="/images/tutorial/actionPhase.png" class='col-md-12' style="display: block; margin: 0 auto;" />
+                  <form class='form' method='post' action='./entryMain' id='submissionForm' onSubmit="return validateAnswers();">
+                            <div class="form-group text-center">
+                           <label>1.  How much do you get if you choose action A but the other player  chooses action B</label>
+                           
+                            <label class="radio-inline">
+                  <input type="radio" name="1" value="3"> 3
+                  </label>
+                          <label class="radio-inline">
+                      <input type="radio" name="1" value="5"> 5
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="1" value="0"> 0
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="1" value="1"> 1
+                    </label>
+                    
+                  </div>
+
+                    <div class="form-group  text-center">
+                    <label>2.  How much do you get if you choose action B but the other player chooses action B</label>
+                            <label class="radio-inline">
+                  <input type="radio" name="2" value="3"> 3
+                  </label>
+                          <label class="radio-inline">
+                      <input type="radio" name="2" value="5"> 5
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="2" value="0"> 0
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="2" value="1"> 1
+                    </label>
+                  </div>
+                <div class="form-group text-center">
+                  <button class='btn btn-default' type='submit'>Submit </button>
+                </div>
+              </form>
+
+                  </div>
+                  <div class="panel-footer" >
+                    <button id='pageprevious' style='display:none'>Previous</button>
+                    <button id='pagenext' >Next</button>
+                    <button id='pagesubmit' style='display:none'>Submit</button>
+                  </div>
+                </div>
+        </div>
+
+
+
+    </div>  
+</div>
+
+
+<script src="/javascripts/PostExperiment.js"></script>
+<script type="text/javascript">
+var pagesHeader = ['INTRODUCTION','THE GAME', 'YOUR CHOICES', 'YOUR APP', 'YOUR POINTS', 'YOUR EARNINGS AND FEEDBACK', 'DISQUALIFICATION', 'QUIZ'];
+new Quiz('page', 8, true, false, false, pagesHeader);
+</script>
+</body>
+</html>

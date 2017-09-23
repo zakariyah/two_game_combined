@@ -1,0 +1,50 @@
+1. chat and tutorial and exams 4 hrs
+2. Aamena's work 1 hr
+3. Google vision api - 1hr
+4. Revise machine learning algorithms
+5. Hacker rank javascript
+
+key: AIzaSyBWKIHrS-h5AxXIS23dbz9EjvcAB0dB0O8
+
+
+curl -v -k -s -H "Content-Type: application/json"   https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBWKIHrS-h5AxXIS23dbz9EjvcAB0dB0O8   --data-binary @request.txt
+
+
+tighten the navigation
+Add the tutorial
+Add the questionaire part 1 hr
+
+
+Fix the chat box to use the options label 1hr
+
+
+Aamena's work 1hr
+
+
+Machine learning algorithms: numpy, scipy, and ski-learn.
+Read statistics
+Hacker rank javascript
+
+
+Do Machine learning algorithms: numpy, scipy, and ski-learn.
+Make small video of back camera of first mosque one solah then generalize
+
+
+
+1. Fix the minor issues, tutorial, color. 30 mins done
+Fix opponent score later 
+Pause and split video
+2. Set up round number before every score and rewrite it. done
+2. Make the algorithm give feedback. 1hr3
+3. Change the payoff matrix  
+4. Make the algorithm save the current expert.
+
+
+1. Fix the payoff in the tutorial
+2. 
+
+
+
+Note
+1. cap the delay
+2.
