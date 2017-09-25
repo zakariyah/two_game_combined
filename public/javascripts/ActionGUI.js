@@ -437,7 +437,7 @@ var PrisonersDilemma = function()
 
 		
 	// var socket = io.connect('http://localhost:4000');
-	var socket = io.connect('http://ec2-52-88-237-252.us-west-2.compute.amazonaws.com:4000/');
+	var socket = io.connect('http://ec2-34.213.141.244.us-west-2.compute.amazonaws.com:4000/');
 	var myCanvasContainer =  new CanvasContainer(socket);
 
 	var blocker = new Blocker();
