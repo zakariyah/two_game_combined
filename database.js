@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
     function connect(connectionString) {
-        mongoose.connect(connectionString)
+        // mongoose.connect(connectionString)
+        mongoose.connect(connectionString, {user: 'myTester', pass: 'xyz123'})
         // if (mode === 'development')
         //     mongoose.set('debug', true)
         var db = mongoose.connection
