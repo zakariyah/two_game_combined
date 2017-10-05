@@ -436,8 +436,8 @@ var PrisonersDilemma = function()
 	var gametypeinspectorid = document.getElementById("gametypeinspectorid").innerHTML;
 
 		
-	// var socket = io.connect('http://localhost:4000');
-	var socket = io.connect('http://ec2-34-213-141-244.us-west-2.compute.amazonaws.com:4000/');
+	var socket = io.connect('http://localhost:4000');
+	// var socket = io.connect('http://ec2-34-213-141-244.us-west-2.compute.amazonaws.com:4000/');
 	var myCanvasContainer =  new CanvasContainer(socket);
 
 	var blocker = new Blocker();
@@ -545,10 +545,8 @@ var PrisonersDilemma = function()
 		
 	}
 
-	var serverMessage = function(content)
-	{	
-		if(content.count == 0)
-		{
+	var firstGameRound = function(content)
+	{
 			waitingTimeElapsed.stopTimer();
 			myCanvasContainer.startGame();
 			gameManager.startTimer();
@@ -556,6 +554,15 @@ var PrisonersDilemma = function()
 			document.getElementById('roundNumber').innerHTML = 'Round ' + (content.count + 1);
 			document.getElementById('actionAndReview').style.display = 'block';
 			document.getElementById('timerBegin').innerHTML = '';
+	}
+
+	var serverMessage = function(content)
+	{	
+		if(content.count == 0)
+		{
+			var time_to_sleep = Math.floor(Math.random() * 10) + 1;
+			setTimeout(firstGameRound, time_to_sleep * 1000, content);
+			
 		}
 		else if(content.count < content.rounds)
 		{
@@ -600,8 +607,7 @@ var PrisonersDilemma = function()
 	socket.emit('join', joinMessage);
 	
 	waitingTimeElapsed.startTimer();
-	console.log("Problem here 1");
+	
 }
 
 pd = new PrisonersDilemma();
-console.log("Problem here 2");

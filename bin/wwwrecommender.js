@@ -59,29 +59,30 @@ ionew.sockets.on('connection', function (socket) {
 			if(!(socket.id in gameMap)) // if player has not been already mapped
 			{
 	
-				var player = new gameplayer(gameCounter + "agent", null, true, 1, playerHiitNumberMap[gameCounter + "agent"]); //agents dont have socket
-				if(typeof gameControllerArray[gameCounter] === 'undefined')
+				var player = new gameplayer(socket.id + "agent", null, true, 1, null); //agents dont have socket
+				var soc_game_controller = gameControllerArray.getController(socket.id);
+				if(typeof soc_game_controller === 'undefined')
 				{
 					return;  // what should be done
 				}
-				gameControllerArray[gameCounter].addPlayer(player);				
-				if(gameControllerArray[gameCounter].isFilled())
+				soc_game_controller.addPlayer(player);				
+				if(soc_game_controller.isFilled())
 				{
-					startGame();
+					startGame(soc_game_controller);
 
-					var playersId = Object.keys(gameControllerArray[gameCounter].gamePlayers);
-					for(playerId in playersId)
-					{
-						var playerObject = gameControllerArray[gameCounter].gamePlayers[playersId[playerId]];
-						if(!playerObject.isAgent)
-						{ // only the non agent gets the recommendation
-							// not needed for first game
-							// playerObject.setHasRecommender(false);
-						}						
-					}
+					var playersId = Object.keys(soc_game_controller.gamePlayers);
+					// for(playerId in playersId)
+					// {
+					// 	var playerObject = gameControllerArray[gameCounter].gamePlayers[playersId[playerId]];
+					// 	if(!playerObject.isAgent)
+					// 	{ // only the non agent gets the recommendation
+					// 		// not needed for first game
+					// 		// playerObject.setHasRecommender(false);
+					// 	}						
+					// }
 
 					firstPlayerJustEntered = true;
-					sendMessageAndStart();
+					sendMessageAndStart(soc_game_controller);
 				}
 				else
 				{
