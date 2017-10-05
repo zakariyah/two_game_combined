@@ -12,6 +12,9 @@ var gameControllerArray = function()
 		var start_game = start_game_results.start_game;
 		var players = start_game_results.players;
 		var gameType = start_game_results.gameType;
+		console.log("results " + start_game_results);
+		console.log("socket id  " + socket_id);
+		console.log("hiitNumber " + hiitNumber);		
 
 		if(start_game)
 		{
@@ -29,9 +32,10 @@ var gameControllerArray = function()
 			else if(gameType == 'double')
 			{
 				var controller_game = null;
+				console.log("game_controllers_hiit " + Object.keys(game_controllers_hiit));
 				for(hiit_no in players)
 				{
-					if(hiit_no in Object.keys(game_controllers_hiit))
+					if(hiit_no in game_controllers_hiit)
 					{
 						controller_game = game_controllers_hiit[hiit_no];
 						game_controllers_hiit[hiitNumber] = controller_game;
