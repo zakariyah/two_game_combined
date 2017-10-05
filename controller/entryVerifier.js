@@ -9,6 +9,7 @@ var entryVerifier = function(req, res, playerPresent, playerAbsent, hiit, gameTy
 	hiitNumberInfo['id'] = hiit;
 	hiitNumberInfo['gameid'] = gameProperties.gameId;
 	var playerId = hiitNumberInfo['id'];
+	var waitinfoId = gameType == "12dfare" ? "Please wait for someone else to join" : "Please wait while we instantiate the bot";
 
 	enteredGame.findHiitNumberPresentInGame(hiitNumberInfo, function(err, result)
 	{
@@ -23,7 +24,7 @@ var entryVerifier = function(req, res, playerPresent, playerAbsent, hiit, gameTy
 				enteredGame.createEnteredGame(hiitNumberInfo);
 				res.render(playerAbsent, { title: playerAbsent, minTimeMins : 5, maxTimeMins : 20, currency:'AED', reward : 50
 		,maxbonus :20, playingtimes : 10, numPlayers : 6, waitingRoomTime : 30000, 
-		hiitNumber : playerId, gameTypeId: gameType});
+		hiitNumber : playerId, gameTypeId: gameType, waitinfoId: waitinfoId});
 			}
 			else
 			{

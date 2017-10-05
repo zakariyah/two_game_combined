@@ -14,7 +14,7 @@ var gameTypeStore = function()
 	this.addPlayer = function(player_hiitnumber, type)
 	{
 		// console.log('player hiit ' + player_hiitnumber + " type is " + type);
-		if(type == "12dfare")
+		if(type == "12dfare") // told humans
 		{
 			truth_players.push(player_hiitnumber);
 			if(truth_tracker_double)
@@ -43,7 +43,7 @@ var gameTypeStore = function()
 			}
 
 		}
-		else if(type == "34chgsfsff")
+		else if(type == "34chgsfsff") // told agents
 		{
 			false_players.push(player_hiitnumber);
 			if(false_tracker_double)

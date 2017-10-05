@@ -35,11 +35,13 @@ var gameStore = function()
 		// 	+ Object.keys(truth_players) + ' f:  ' + Object.keys(false_players));
 		if(hiit_number in truth_players)
 		{
+			// told human
 			// console.log("here one");
 			return "12dfare";
 		}
 		else if(hiit_number in false_players)
 		{
+			// told agents
 			// console.log("here two");
 			return "34chgsfsff";
 		}

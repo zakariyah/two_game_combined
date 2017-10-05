@@ -328,13 +328,13 @@ var TimerFunction = function(countIn, intervalIn, periodicFunction, endFunction,
 	}
 }
 
-var WaitingTimeElapsed = function(socket)
+var WaitingTimeElapsed = function(socket, waitinfo)
 {
 	var totalWaitingTime = 300;
 	var intervalWaiting = 1000;
 	var waitingTimePeriodicFunction = function(count)
 	{
-		document.getElementById('timerBegin').innerHTML = count + " second" + ((count > 1) ? "s" : "") + " remaining. Please wait while we instantiate the bot";
+		document.getElementById('timerBegin').innerHTML = count + " second" + ((count > 1) ? "s" : "") + " remaining. " + waitinfo; 
 	}
 
 	var waitingTimeEndFunction = function()
@@ -434,7 +434,7 @@ var PrisonersDilemma = function()
 {	
 	var hiitNumber = document.getElementById("hiitNumber").innerHTML;
 	var gametypeinspectorid = document.getElementById("gametypeinspectorid").innerHTML;
-
+	var waitinfo = document.getElementById("waitinfo").innerHTML;
 		
 	var socket = io.connect('http://localhost:4000');
 	// var socket = io.connect('http://ec2-34-213-141-244.us-west-2.compute.amazonaws.com:4000/');
@@ -449,7 +449,7 @@ var PrisonersDilemma = function()
 	// }
 
 	// // waiting Time 
-	var waitingTimeElapsed = new WaitingTimeElapsed(socket);
+	var waitingTimeElapsed = new WaitingTimeElapsed(socket, waitinfo);
 
 	// var gameTimer = new GameTimer(socket, gameTimerEnd);
 
@@ -560,7 +560,7 @@ var PrisonersDilemma = function()
 	{	
 		if(content.count == 0)
 		{
-			var time_to_sleep = Math.floor(Math.random() * 10) + 1;
+			var time_to_sleep = Math.floor(Math.random() * 10) + 5;
 			setTimeout(firstGameRound, time_to_sleep * 1000, content);
 			
 		}
