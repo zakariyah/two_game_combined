@@ -436,8 +436,8 @@ var PrisonersDilemma = function()
 	var gametypeinspectorid = document.getElementById("gametypeinspectorid").innerHTML;
 	var waitinfo = document.getElementById("waitinfo").innerHTML;
 		
-	var socket = io.connect('http://localhost:4000');
-	// var socket = io.connect('http://ec2-34-213-141-244.us-west-2.compute.amazonaws.com:4000/');
+	// var socket = io.connect('http://localhost:4000');
+	var socket = io.connect('http://ec2-34-213-141-244.us-west-2.compute.amazonaws.com:4000/');
 	var myCanvasContainer =  new CanvasContainer(socket);
 
 	var blocker = new Blocker();
