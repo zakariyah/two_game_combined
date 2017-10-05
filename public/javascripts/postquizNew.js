@@ -37,8 +37,19 @@ function postQuizQuestions(hasRecommenders, cummulativeScore, numberOfRounds)
 	htmlString += "<input type='hidden' name='cummulativeScore' value='" +cummulativeScore +"'>";
   	htmlString += "<input type='hidden' name='numberOfRounds' value='" + numberOfRounds +"'>";
 	
+  	htmlString += "<div id='page1' style='display:block'>";
+  	htmlString += "<div class='form-group'><b>Associate Identity:</b><p>1. At the ";
+  	htmlString += "beginning of the game, which type of associate were you told that you would be ";
+  	htmlString += "playing with?</p></div>";
 
-	htmlString += "<div id='page1' style='display:block'>";
+	htmlString += "<div class='form-group'><div class='col-sm-10'><div class='checkbox'><label>";
+	htmlString += "<input type='radio' name='told' value='1'>  BOT as Associate </label><label>";
+	htmlString += "<input type='radio' name='told' value='2'>  HUMAN as Associate</label>";
+	htmlString += "</div></div></div></div>";
+
+	
+
+	htmlString += "<div id='page2' style='display:none'>";
 	  // htmlString += "Page 1";
 	htmlString += "<div class='form-group'>";
 	htmlString += "<label for='inputEmail3' class='control-label'>1. How would you assess the skills of the associate compared to your own?</label></div>";
@@ -80,7 +91,7 @@ htmlString += "<div class='form-group'><div class='col-sm-10'><div class='checkb
         htmlString += "</label><label><input type='radio' name='risk' value='3'>  Fully prepared to take risks";
         htmlString += "</label></div></div></div>";
        	htmlString += "</div>";
-      htmlString += "<div id='page2' style='display:none'>";
+      htmlString += "<div id='page3' style='display:none'>";
       
 
 htmlString += "<div class='form-group'><label for='inputEmail3' class='control-label'>1. To what extent do the following terms describe your associate's behavior in the game?</label></div>";
@@ -159,7 +170,7 @@ htmlString += "<td><input type='radio' name='selfish1' value='5'/> 5</td></tr>";
 htmlString += "</table></div></div>";
 htmlString += "</div>";
 
-htmlString += "<div id='page3'  style='display:none'>";
+htmlString += "<div id='page4'  style='display:none'>";
 htmlString += "<div class='form-group'><b>Associate Identity:</b><p>1. At the beginning of the game, you were told that you would be playing the game with a Human Associate. Given your actual experience playing the game, who do you think you played with?</p></div>";
 
 htmlString += "<div class='form-group'><div class='col-sm-10'><div class='checkbox'><label><input type='radio' name='thought' value='1'>  Yes, a HUMAN associate as said</label><label><input type='radio' name='thought' value='2'>  No, a BOT</label></div></div></div>";
@@ -178,7 +189,7 @@ htmlString += "<div class=' col-sm-6'><textarea name='reason2' class='form-contr
 htmlString += "</div>";
 
 
-htmlString += "<div id='page4' style='display:none'>";
+htmlString += "<div id='page5' style='display:none'>";
 	  // htmlString += "Page 1";
 	htmlString += "<div class='form-group'>";
 	htmlString += "<label for='inputEmail3' class='control-label'>1. People are more likely to be cooperative than autonomous machines.</label></div>";

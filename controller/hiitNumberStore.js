@@ -9,7 +9,7 @@ var saveHiitNumber = function(req, res, playerPresent, playerAbsent, playerAbsen
 	hiitNumberInfo['gameid'] = gameProperties.gameId;
 	var playerId = hiitNumberInfo['id'];
 	var gametype = gameStore.addPlayer(playerId);
-	// hiitNumberInfo['gametype'] = gametype;
+	hiitNumberInfo['gametype'] = (gametype == 0) ? 'told_human' : 'told_agent';
  	if(gametype != 0)
  	{
  		playerAbsent = playerAbsent2

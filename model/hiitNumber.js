@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
   var hiitNumberSchema = new mongoose.Schema({
   gameid: { type: String }
   , playerid: { type: String }
+  , gametype : { type: String }
 });
 
 hiitNumberSchema.statics.createHiitSchema = function(hiitInfo) {
@@ -9,6 +10,7 @@ hiitNumberSchema.statics.createHiitSchema = function(hiitInfo) {
     var newHiitNumber = new this({
        playerid: hiitInfo.id,
        gameid: hiitInfo.gameid,
+       gametype: hiitInfo.gametype
     });
     // console.log(hiitInfo);
     newHiitNumber.save(function(err) {
